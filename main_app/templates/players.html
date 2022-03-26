@@ -4,9 +4,18 @@
 {% endblock %}
 
 {% block content %}
+    <form action="" class="search">
+        <div>
+            <input type="text" name="name" placeholder="name" />
+            <input type="submit" value="Search" />
+        </div>
+        <a href="{% url 'players' %}">Clear Search</a>
+    </form>
+
     <h1>ALL PLAYERS:</h1>
 
     {% for player in players %}
+    <img src="{{player.img}}" alt="player" />
     <h3 class="player-name">{{player.name}}</h3>
     <span class="player-info">Position: {{player.position}}</span>
     <h4 class="player-team">{{player.team}}</h4>

@@ -36,7 +36,15 @@ class PlayersList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["players"] = Player.objects.all() # no longer using player list, accessing context from DB
+        # query parameter for search
+        name = self.request.GET.get("name")
+        # if it exists
+        if name != None:
+            context["players"] = Player.objects.filter(name__icontains=name)
+        else:
+            context["players"] = Player.objects.all() # no longer using player list, accessing context from DB
         return context
         # returning context data from fake players db
+
+
 
