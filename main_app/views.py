@@ -13,5 +13,30 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
-class Teams(TemplateView):
-    template_name = "teams.html"
+
+# INDV Player
+class Player:
+    def __init__(self, name, team, height, position):
+        self.name = name
+        self.team = team
+        self.height = height
+        self.position = position
+
+# initial player DB
+players = [
+    Player("Lebron James", "Lakers", 81, "F" ),
+    Player("Carmelo Anthony", "Lakers", 80, "F" ),
+    Player("Kevin Durant", "Nets", 83, "F" ),
+    Player("Kyrie Irving", "Nets", 74, "G" ),
+]
+
+# Players List
+class PlayersList(TemplateView):
+    template_name = "players.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["players"] = players
+        return context
+        # returning context data from fake players db
+

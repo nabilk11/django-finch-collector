@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    Django Basketball | Players        
+{% endblock %}
+
+{% block content %}
+    <h1>ALL PLAYERS:</h1>
+
+    {% for player in players %}
+    <h3 class="player-name">{{player.name}}</h3>
+    <span class="player-info">Position: {{player.position}}</span>
+    <h4 class="player-team">{{player.team}}</h4>
+    <span class="player-info">Height(inches): {{player.height}}</span>
+    
+    {% endfor %}
+{% endblock %}
