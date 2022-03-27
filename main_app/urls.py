@@ -23,9 +23,9 @@ urlpatterns = [
    #Accessories PATHS
    path('accessories/', views.accessories_index, name='accessories_index'),
    path('accessories/<int:accessories_id>', views.accessories_show, name='accessories_show'),
-   path('accessories/create', views.AddAccessory, name='AddAccessory'),
-   path('accessories/<int:pk>/update', views.UpdateAccessory, name='UpdateAccessory'),
-   path('accessories/<int:pk>/delete', views.DeleteAccessory, name='DeleteAccessory'),
+   path('accessories/create', views.AddAccessory.as_view(), name='add_accessory'),
+   path('accessories/<int:pk>/update', views.UpdateAccessory.as_view(), name='update_accessory'),
+   path('accessories/<int:pk>/delete', views.DeleteAccessory.as_view(), name='delete_accessory'),
 
 
 ]

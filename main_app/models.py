@@ -9,7 +9,7 @@ POSITION_CHOICES = (
     ("C", "Center"),
 )
 
-# Accessories Model
+# Accessories Model - in future use singular for proper naming convention ie. Accessory
 class Accessories(models.Model):
     name = models.CharField(max_length=55)
     color = models.CharField(max_length=55)

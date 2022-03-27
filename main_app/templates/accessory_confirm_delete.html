@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Django Basketball | Delete Accessory        
+{% endblock %}
+{% block content %}
+<h1 class="header">Delete Accessory</h1>
+
+<h3 class="sub-header">Are You Sure You Want to Delete this {{ accessories }} from the DB?</h3>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes - DELETE!</button>
+    <a href="{% url 'accessories_show' accessories.id %}">CANCEL</a>
+</form>
+
+{% endblock %}

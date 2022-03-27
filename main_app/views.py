@@ -113,7 +113,7 @@ def accessories_show(request, accessories_id):
 class AddAccessory(CreateView):
     model = Accessories
     fields = '__all__'
-    template_name = 'add_accesory.html'
+    template_name = 'add_accessory.html'
     success_url = '/accessories'
 
 # Update Accessory Class
@@ -129,4 +129,3 @@ class DeleteAccessory(DeleteView):
     template_name = 'accessory_confirm_delete.html'
     success_url = '/accessories'
 
-    

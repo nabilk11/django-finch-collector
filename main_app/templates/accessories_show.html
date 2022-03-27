@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Django Basketball | Add New Accessory        
+{% endblock %}
+{% block content %}
+<h1 class="header">Accessory Details</h1>
+
+<div>
+    <div>
+        <h4 class="accessory-name">{{ accessories.name }}</h4>
+        <p class="accessory-color">{{ accessories.color }}</p>
+    </div>
+    <div>
+        <a href="{% url 'update_accessory' accessories.id %}" class="edit">Edit Accessory</a>
+        <a href="{% url 'delete_accessory' accessories.id %}" class="delete">Delete Accessory</a>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Django Basketball | Update Accessory        
+{% endblock %}
+{% block content %}
+<h1 class="header">Update Accessory</h1>
+
+<form method="post">
+    {% csrf_token%}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" >Update</button>
+</form>
+
+{% endblock %}

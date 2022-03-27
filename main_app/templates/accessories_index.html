@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Django Basketball | All Accessories        
+{% endblock %}
+{% block content %}
+<h1 class="header">All Accessories</h1>
+
+{% for accessory in accessories %}
+<div>
+<a href="{% url 'accessories_show' accessory.id %}" >
+<div class="accessory">
+    <h4 class="accessory-name">{{ accessory.name }} <br/>
+        <small>{{ accessory.color }}</small>
+    </h4>
+</div>
+<hr />
+</a>
+</div>
+{% endfor %}
+
+
+{% endblock %}
