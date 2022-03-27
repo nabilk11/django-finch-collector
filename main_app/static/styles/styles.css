@@ -1,5 +1,14 @@
 
 
-h1 {
+h1, .header {
     color: cornflowerblue;
+}
+
+
+
+/* ABOUT PAGE */
+
+.about-img {
+    width: 400px;
+
 }

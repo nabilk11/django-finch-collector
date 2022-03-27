@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
     Django Basketball | About        
 {% endblock %}
 
 {% block content %}
-    <h1>About Page for DJango BBALL</h1>
-{% endblock %}
+    <h1>About DJango BBALL</h1>
+    <p>DJango Basketball is a full stack Django application that allows users to sign in and create a database for their favorite players in the NBA.</p>
+
+    <h4>In future interations we would like to add statistics for viewing how a player is performing over his recent games, and elements of fantasy basketball, so users can create their own custom rosters, and play against their friends every night of the NBA season!</h4>
+    <img class="about-img" src="https://cdn.nba.com/manage/2020/05/nba-basketball-iso.jpg" alt="nba">
+
+
+    {% endblock %}

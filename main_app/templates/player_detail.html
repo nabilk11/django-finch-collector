@@ -15,6 +15,17 @@ Django Basketball | Player Details
     <img src="{{player.img}}" alt="{{player.name}}" />
   </div>
 </div>
+
+<h5>Accessories:</h5>
+{% for accessory in player.accessories.all %}
+<div>
+    <p>{{ accessory.name }} <br/>
+        <small>{{ accessory.color }}</small>
+    </p>
+</div>
+{% empty %}
+    <div>This Player Has No Accessories Yet!</div>
+{% endfor %}
 <div>
     <a href="{% url 'player_update' player.pk %}">Update Player Info</a>
     <a href="{% url 'player_delete' player.pk %}">Delete Player</a>

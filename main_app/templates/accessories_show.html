@@ -4,11 +4,22 @@
 {% endblock %}
 {% block content %}
 <h1 class="header">Accessory Details</h1>
+<p>Basketball players will often use accessories for sweat management, to improve play, and simply looking cool! 
+    Add Headbands, Wristbands, Shooting Sleeves and more to your favorite players!
+</p> 
 
 <div>
     <div>
         <h4 class="accessory-name">{{ accessories.name }}</h4>
         <p class="accessory-color">{{ accessories.color }}</p>
+    </div>
+    <div>
+        <p>Owned By:</p>
+        {% for accessory in accessories.player_set.all %}
+            <p>{{player.name}}</p>
+        {% empty %}
+            <p>Nobody Has This Accessory Yet!</p>
+        {% endfor %}
     </div>
     <div>
         <a href="{% url 'update_accessory' accessories.id %}" class="edit">Edit Accessory</a>

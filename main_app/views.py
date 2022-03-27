@@ -59,7 +59,7 @@ class PlayersList(TemplateView):
 # Add player View Class
 class Add_Player(CreateView):
     model = Player
-    fields = ['name', 'img', 'team', 'height', 'position']
+    fields = ['name', 'img', 'team', 'height', 'position', 'accessories']
     template_name = "add_player.html"
    # success_url = "/players/" - refactoring success url to details page
     # def get_success_url(self):
@@ -78,7 +78,7 @@ class PlayerDetail(DetailView):
 # PLayer Update View Class
 class PlayerUpdate(UpdateView):
     model = Player
-    fields = ['name', 'img', 'team', 'height', 'position']
+    fields = ['name', 'img', 'team', 'height', 'position', 'accessories']
     template_name = 'player_update.html'
     #success_url = '/players/'
     def get_success_url(self):

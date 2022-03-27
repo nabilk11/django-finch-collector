@@ -25,7 +25,11 @@ class Player(models.Model):
     height = models.IntegerField()
     position = models.CharField(max_length=10, choices = POSITION_CHOICES)
     created_at = models.DateTimeField(auto_now_add = True)
+    # added user relationship for fav players - 1:M
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # added accessories relationship - M:M
+    accessories = models.ManyToManyField(Accessories)
+
 
     def __str__(self):
         return self.name
