@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+Django Basketball | Player Details
+{% endblock %}
+
+{% block content %}
+
+<div>
+  <h1>{{player.name}}</h1>
+  <span class="team">Team: {{player.team}} |</span>
+  <span class="position">Position: {{player.position}} |</span>
+  <span class="height">Height(in): {{player.height}} |</span>
+  <div class="player-img">
+    <img src="{{player.img}}" alt="{{player.name}}" />
+  </div>
+</div>
+<div>
+    <a href=""></a>
+    <a href=""></a>
+</div>
+
+{% endblock %}

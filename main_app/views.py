@@ -1,7 +1,10 @@
+from pyexpat import model
 from django.shortcuts import render
 from django.views import View # <- View class to handle requests
 from django.http import HttpResponse # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import CreateView
+from django.views.generic import DetailView
 from .models import Player
 
 # Create your views here.
@@ -41,10 +44,19 @@ class PlayersList(TemplateView):
         # if it exists
         if name != None:
             context["players"] = Player.objects.filter(name__icontains=name)
+            context["header"] = f"Searching for {name}"
         else:
             context["players"] = Player.objects.all() # no longer using player list, accessing context from DB
+            context["header"] = "ALL PLAYERS"
         return context
         # returning context data from fake players db
 
+class Add_Player(CreateView):
+    model = Player
+    fields = ['name', 'img', 'team', 'height', 'position']
+    template_name = "add_player.html"
+    success_url = "/players/"
 
-
+class PlayerDetail(DetailView):
+    model = Player
+    template_name = "player_detail.html"

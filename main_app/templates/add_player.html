@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block title %}
+    Django Basketball | Add Player        
+{% endblock %}
+{% block content %}
+	<h1>Add a Player to DB</h1>
+	
+	<form method="post">
+		<!-- Security Feature - add token to form  -->
+		  {% csrf_token %} 
+		<!--  Generate inputs  -->
+		  {{form.as_p}} 
+		  <input type="submit" value="Add Player!" />
+	</form>
+
+{% endblock %}

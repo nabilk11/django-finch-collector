@@ -6,6 +6,10 @@ from . import views
 urlpatterns = [
    path('', views.Home.as_view(), name="Home"),
    path('about/', views.About.as_view(), name="about"),
-   path('players/', views.PlayersList.as_view(), name="players")
-
+   # players list path
+   path('players/', views.PlayersList.as_view(), name="players"),
+   # add a player path
+   path('players/new/', views.Add_Player.as_view(), name="add_player"),
+   # player detail path
+   path('players/<int:pk>/', views.PlayerDetail.as_view(), name="player_detail")
 ]

@@ -10,13 +10,16 @@
             <input type="submit" value="Search" />
         </div>
         <a href="{% url 'players' %}">Clear Search</a>
+        <a href="{% url 'add_player' %}">Add Player</a>
     </form>
 
-    <h1>ALL PLAYERS:</h1>
+    <h1>{{header}}</h1>
 
     {% for player in players %}
-    <img src="{{player.img}}" alt="player" />
-    <h3 class="player-name">{{player.name}}</h3>
+    <a href="{% url 'player_detail' player.pk %}" class="details">
+        <img src="{{player.img}}" alt="{{player.name}}" />
+        <h3 class="player-name">{{player.name}}</h3>
+    </a>
     <span class="player-info">Position: {{player.position}}</span>
     <h4 class="player-team">{{player.team}}</h4>
     <span class="player-info">Height(inches): {{player.height}}</span>
