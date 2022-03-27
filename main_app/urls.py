@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.urls import path, include
 from . import views
 
@@ -11,5 +10,7 @@ urlpatterns = [
    # add a player path
    path('players/new/', views.Add_Player.as_view(), name="add_player"),
    # player detail path
-   path('players/<int:pk>/', views.PlayerDetail.as_view(), name="player_detail")
+   path('players/<int:pk>/', views.PlayerDetail.as_view(), name="player_detail"),
+   # player update path
+   path('players/<int:pk>/update', views.PlayerUpdate.as_view(), name="player_update"),
 ]

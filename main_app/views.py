@@ -1,9 +1,10 @@
+from dataclasses import fields
 from pyexpat import model
 from django.shortcuts import render
 from django.views import View # <- View class to handle requests
 from django.http import HttpResponse # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Player
 
@@ -51,12 +52,22 @@ class PlayersList(TemplateView):
         return context
         # returning context data from fake players db
 
+# Add player View Class
 class Add_Player(CreateView):
     model = Player
     fields = ['name', 'img', 'team', 'height', 'position']
     template_name = "add_player.html"
     success_url = "/players/"
 
+# PLayer Detail View Class
 class PlayerDetail(DetailView):
     model = Player
     template_name = "player_detail.html"
+
+# PLayer Update View Class
+class PlayerUpdate(UpdateView):
+    model = Player
+    fields = ['name', 'img', 'team', 'height', 'position']
+    template_name = 'player_update.html'
+    success_url = '/players/'
+
