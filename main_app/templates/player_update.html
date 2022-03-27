@@ -12,6 +12,7 @@ Django Basketball | Update Player
     {{form.as_p}}
 
     <button type="submit">Update Player!</button>
+    <a href="{% url 'player_delete' player.pk %}">Or Delete Player?</a>
 </form>
 
 {% endblock %}

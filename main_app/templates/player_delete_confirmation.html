@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+Django Basketball | Delete Player
+{% endblock %}
+
+{% block content %}
+<h1 class="header">Are You Sure You Want to Delete {{player.name}} from the DB?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">YES - DELETE!</button>
+    <div>
+        <a href="{% url 'player_detail' player.pk %}" class="cancel">CANCEL</a>
+        <a href="{% url 'player_update' player.pk %}" class="update">UPDATE INSTEAD?</a>
+    </div>
+
+</form>
+{% endblock %}

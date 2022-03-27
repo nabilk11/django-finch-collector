@@ -7,6 +7,8 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Player
+from django.urls import reverse
+
 
 # Create your views here.
 
@@ -57,7 +59,9 @@ class Add_Player(CreateView):
     model = Player
     fields = ['name', 'img', 'team', 'height', 'position']
     template_name = "add_player.html"
-    success_url = "/players/"
+   # success_url = "/players/" - refactoring success url to details page
+    def get_success_url(self):
+       return reverse('player_detail', kwargs={'pk': self.object.pk})
 
 # PLayer Detail View Class
 class PlayerDetail(DetailView):
@@ -69,5 +73,13 @@ class PlayerUpdate(UpdateView):
     model = Player
     fields = ['name', 'img', 'team', 'height', 'position']
     template_name = 'player_update.html'
+    #success_url = '/players/'
+    def get_success_url(self):
+       return reverse('player_detail', kwargs={'pk': self.object.pk})
+
+# Player Delete View Class
+class PlayerDelete(DeleteView):
+    model = Player
+    template_name = 'player_delete_confirmation.html'
     success_url = '/players/'
 
