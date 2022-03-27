@@ -16,5 +16,8 @@ urlpatterns = [
    path('players/<int:pk>/update', views.PlayerUpdate.as_view(), name="player_update"),
    # player delete path
    path('players/<int:pk>/delete', views.PlayerDelete.as_view(), name="player_delete"),
-   
+
+   #User PF Path
+   path('user/<username>/', views.profile, name='profile'),
+
 ]

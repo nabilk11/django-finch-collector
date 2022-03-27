@@ -1,4 +1,4 @@
-from turtle import position
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -16,6 +16,7 @@ class Player(models.Model):
     height = models.IntegerField()
     position = models.CharField(max_length=10, choices = POSITION_CHOICES)
     created_at = models.DateTimeField(auto_now_add = True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

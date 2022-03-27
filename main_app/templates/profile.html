@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+    Django Basketball | Profile Page        
+{% endblock %}
+
+{% block content %}
+<h1 class="header">{{username}}'s Favorite Players</h1>
+
+{% for player in players %}
+<a href="/players/{{ player.id }}">
+    <h3 class="fav-players">{{ player.name }}</h3>
+</a>
+{% endfor %}
+{% endblock %}

@@ -23,6 +23,9 @@
     <span class="player-info">Position: {{player.position}}</span>
     <h4 class="player-team">{{player.team}}</h4>
     <span class="player-info">Height(inches): {{player.height}}</span>
+    <p class="user">Player Favorited By: 
+        <a href='/user/{{player.user.username}}'>{{player.user.username}}</a> 
+    </p>
     
     {% endfor %}
 {% endblock %}

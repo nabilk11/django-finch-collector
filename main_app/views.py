@@ -2,12 +2,14 @@ from dataclasses import fields
 from pyexpat import model
 from django.shortcuts import render
 from django.views import View # <- View class to handle requests
-from django.http import HttpResponse # <- a class to handle sending a type of response
+from django.http import HttpResponse, HttpResponseRedirect # <- a class to handle sending a type of response
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from .models import Player
 from django.urls import reverse
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -60,8 +62,13 @@ class Add_Player(CreateView):
     fields = ['name', 'img', 'team', 'height', 'position']
     template_name = "add_player.html"
    # success_url = "/players/" - refactoring success url to details page
-    def get_success_url(self):
-       return reverse('player_detail', kwargs={'pk': self.object.pk})
+    # def get_success_url(self):
+    #    return reverse('player_detail', kwargs={'pk': self.object.pk})
+    def form_valid(self, form): # occurs after form validation
+        self.object = form.save(commit=False)  # save without commiting to the DB
+        self.object.user = self.request.user #adding userid
+        self.object.save() #saving to db - then redirect 
+        return HttpResponseRedirect('/players')
 
 # PLayer Detail View Class
 class PlayerDetail(DetailView):
@@ -83,3 +90,8 @@ class PlayerDelete(DeleteView):
     template_name = 'player_delete_confirmation.html'
     success_url = '/players/'
 
+#USER PROFILE PAGE FUNCTION
+def profile(request, username):
+    user = User.objects.get(username = username)
+    players = Player.objects.filter(user = user)
+    return render(request, 'profile.html', {'username': username, 'players': players})
