@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect # <- a class to handl
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
-from .models import Player
+from .models import Player, Accessories
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -95,3 +95,38 @@ def profile(request, username):
     user = User.objects.get(username = username)
     players = Player.objects.filter(user = user)
     return render(request, 'profile.html', {'username': username, 'players': players})
+
+
+# ACCESSORIES CLASSES/FUNCTIONS
+
+# Accessories Index
+def accessories_index(request):
+    accessories = Accessories.objects.all()
+    return render(request, 'accessories_index.html', {'accessories': accessories})
+
+# Accessories Show
+def accessories_show(request, accessories_id):
+    accessories = Accessories.objects.get(id = accessories_id)
+    return render(request, 'accessories_show.html', {'accessories': accessories})
+
+# Add Accessory Class
+class AddAccessory(CreateView):
+    model = Accessories
+    fields = '__all__'
+    template_name = 'add_accesory.html'
+    success_url = '/accessories'
+
+# Update Accessory Class
+class UpdateAccessory(UpdateView):
+    model = Accessories
+    fields = ['name', 'color']
+    template_name = 'update_accessory.html'
+    success_url = '/accessories'
+
+# Delete Accessory Class
+class DeleteAccessory(DeleteView):
+    model = Accessories
+    template_name = 'accessory_confirm_delete.html'
+    success_url = '/accessories'
+
+    

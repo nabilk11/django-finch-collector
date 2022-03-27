@@ -9,6 +9,15 @@ POSITION_CHOICES = (
     ("C", "Center"),
 )
 
+# Accessories Model
+class Accessories(models.Model):
+    name = models.CharField(max_length=55)
+    color = models.CharField(max_length=55)
+
+    def __str__(self):
+        return self.name
+
+
 class Player(models.Model):
     name = models.CharField(max_length=50)
     team = models.CharField(max_length=20)

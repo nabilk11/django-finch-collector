@@ -20,4 +20,12 @@ urlpatterns = [
    #User PF Path
    path('user/<username>/', views.profile, name='profile'),
 
+   #Accessories PATHS
+   path('accessories/', views.accessories_index, name='accessories_index'),
+   path('accessories/<int:accessories_id>', views.accessories_show, name='accessories_show'),
+   path('accessories/create', views.AddAccessory, name='AddAccessory'),
+   path('accessories/<int:pk>/update', views.UpdateAccessory, name='UpdateAccessory'),
+   path('accessories/<int:pk>/delete', views.DeleteAccessory, name='DeleteAccessory'),
+
+
 ]
