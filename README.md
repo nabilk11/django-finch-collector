@@ -1,7 +1,8 @@
 # django-finch-collector
 GA HW Finch Collector
 
-# Resource
+## Resource
+The resource I chose to use was NBA Basketball players. Within the application, users will be able to add their favorite players to their "roster" of favorite players. In addition to giving them accessories, such as headbands, shooting sleeves and more, to associate with those players. 
 
 # Finch collector lab - Views and Templates
 

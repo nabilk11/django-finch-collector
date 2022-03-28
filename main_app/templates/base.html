@@ -21,7 +21,13 @@
         <a href="/accessories" class="nav-link">ACCESSORIES |</a>
         <a href="/accessories/create" class="nav-link">ADD ACCESSORIES |</a>
         <a href="/admin" class="nav-link">SITE ADMIN |</a>
-        
+        {% if user.is_authenticated %}
+        <a style="margin-left: 8vw;" href="{% url 'profile' user.username %}" class="nav-link">| PROFILE |</a>
+        <a href="{% url 'logout' %}" class="nav-link">LOGOUT |</a>
+        {% else %}
+        <a style="margin-left: 8vw;" href="{% url 'login' %}" class="nav-link">| LOGIN |</a>
+        <a href="{% url 'signup' %}" class="nav-link">CREATE ACCOUNT |</a>
+        {% endif %}
     </nav>
   {% block content %}  
 

@@ -27,5 +27,9 @@ urlpatterns = [
    path('accessories/<int:pk>/update', views.UpdateAccessory.as_view(), name='update_accessory'),
    path('accessories/<int:pk>/delete', views.DeleteAccessory.as_view(), name='delete_accessory'),
 
+   #AUTH Paths
+   path('login/', views.login_view, name='login'),
+   path('logout/', views.logout_view, name='logout'),
+   path('signup/', views.signup_view, name='signup'),
 
 ]

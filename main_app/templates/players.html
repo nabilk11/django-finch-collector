@@ -14,6 +14,7 @@
     </form>
 
     <h1>{{header}}</h1>
+    <p>This is the full database of players, feel free to add additional players, if you do not see your favorite NBA athlete on the list!</p>
 
     {% for player in players %}
     <a href="{% url 'player_detail' player.pk %}" class="details">

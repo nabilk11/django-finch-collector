@@ -8,12 +8,19 @@
     Add Headbands, Wristbands, Shooting Sleeves and more to your favorite players!
 </p> 
 
-<form method="post">
+<form style="margin-top: 15px;" method="post">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <button type="submit">Add Accessory</button>
+    <button style="margin-top: 35px;" type="submit">Add Accessory</button>
 </form>
+
+<div style="margin-top: 35px; display: flexbox; text-align: center; align-items: center;" class="accessory-img-container">
+    <img style="max-width: 350px; max-height: 200px;" src="http://pm1.narvii.com/6545/2439f54090e045202755e86c156b291436a64777_00.jpg" alt="">
+    <img style="max-width: 350px; max-height: 200px;" src="https://cdn.bleacherreport.net/images_root/slides/photos/000/486/266/80998112_original.jpg?1288899833" alt="">
+    <img style="max-width: 350px; max-height: 200px;" src="https://cdn.bleacherreport.net/images_root/slides/photos/000/128/412/497212.jpg.29576.0_original.jpg?1261424753" alt="">
+    <img style="max-width: 350px; max-height: 200px;" src="https://media.gq.com/photos/5cae3ab7d329243789c03956/4:3/w_1500,h_1125,c_limit/Headbands-NBA-GQ-04102019_16x9.jpg" alt="">
+</div>
 
 {% endblock %}

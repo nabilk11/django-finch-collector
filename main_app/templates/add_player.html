@@ -10,7 +10,11 @@
 		  {% csrf_token %} 
 		<!--  Generate inputs  -->
 		  {{form.as_p}} 
-		  <input type="submit" value="Add Player!" />
+		  <input style="margin-top: 35px;" type="submit" value="Add Player!" />
 	</form>
+
+	<div class="add-player-img" style="margin-top: 20px; text-align: center;">
+		<img style="max-width: 83vw; object-fit: cover;" src="https://library.sportingnews.com/2022-02/All-Star-x-NBA75-%28FTR%29.jpg" alt="">
+	</div>
 
 {% endblock %}
